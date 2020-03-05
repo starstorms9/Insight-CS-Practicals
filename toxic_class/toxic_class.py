@@ -2,7 +2,7 @@
 Created on Mon Mar  2 14:46:02 2020
 
 Trained to ~95% accuracy on the validation set for the 'female' category (vs 88.4% guessing all 0's)
-Tried running it separately on the 'insult' category and without any training got ~95 % (v 92% guessing all 0's)
+Tried running it separately on the 'insult' category and without any extra training got ~95 % (v 92% guessing all 0's)
 """
 
 #%% Imports
@@ -137,7 +137,7 @@ class Toxic(tf.keras.Model):
         model.add(Dropout(self.dropoutRate))
         model.add(Dense(128, activation='relu', kernel_regularizer=regularizers.l2(0.001)))
         model.add(Dropout(self.dropoutRate))
-        model.add(Dense(1)) #, activation='sigmoid'))
+        model.add(Dense(1))
         self.model = model
     
     def __call__(self, text) :
